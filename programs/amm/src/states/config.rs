@@ -4,8 +4,8 @@ use anchor_lang::prelude::*;
 pub const AMM_CONFIG_SEED: &str = "amm_config";
 
 pub const FEE_RATE_DENOMINATOR_VALUE: u32 = 1_000_000;
-// 6 hours
-pub const TIME_DECAY_SNIPER_FEE: i64 = 6 * 60 * 60;
+// 100 minutes
+pub const TIME_DECAY_SNIPER_FEE: i64 = 100 * 60;
 
 /// Holds the current owner of the factory
 #[account]
