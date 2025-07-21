@@ -627,7 +627,7 @@ impl PoolState {
                 let fee_delta = FEE_RATE_DENOMINATOR_VALUE - amm_config.trade_fee_rate;
                 let fee_reduction = (fee_delta as i64 * elapsed_time) / TIME_DECAY_SNIPER_FEE;
                 let dynamic_trade_fee_rate = FEE_RATE_DENOMINATOR_VALUE - fee_reduction as u32;
-                (dynamic_trade_fee_rate, dynamic_trade_fee_rate, 0)
+                (dynamic_trade_fee_rate, FEE_RATE_DENOMINATOR_VALUE / 2, 0) // 50% to protocol, 0% to fund
             };
 
         Ok((
@@ -845,7 +845,7 @@ pub struct TimestampUpdatedEvent {
 // #[cfg_attr(feature = "client", derive(Debug))]
 // pub struct PriceChangeEvent {
 //     /// The pool for swap
-//
+
 //     pub pool_state: Pubkey,
 
 //     /// The tick of the pool before price change
