@@ -362,7 +362,7 @@ pub fn swap_internal<'b, 'info>(
         // if the fund fee is on, calculate how much is owed, decrement fee_amount, and increment fund_fee
         if dynamic_fund_fee_rate > 0 {
             let delta = U128::from(step_fee_amount)
-                .checked_mul(dynamic_protocol_fee_rate.into())
+                .checked_mul(dynamic_fund_fee_rate.into())
                 .unwrap()
                 .checked_div(FEE_RATE_DENOMINATOR_VALUE.into())
                 .unwrap()
