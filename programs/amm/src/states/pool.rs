@@ -1731,10 +1731,10 @@ pub mod pool_test {
             let fund_fees_token_1: u64 = 0x1230456789abcdef;
             let pool_open_time: u64 = 0x1203456789abcdef;
             let recent_epoch: u64 = 0x1023456789abcdef;
-            let mut padding1: [u64; 24] = [0u64; 24];
-            let mut padding1_data = [0u8; 8 * 24];
+            let mut padding1: [u64; 23] = [0u64; 23];
+            let mut padding1_data = [0u8; 8 * 23];
             let mut offset = 0;
-            for i in 0..24 {
+            for i in 0..23 {
                 padding1[i] = u64::MAX - i as u64;
                 padding1_data[offset..offset + 8].copy_from_slice(&padding1[i].to_le_bytes());
                 offset += 8;
@@ -1742,9 +1742,9 @@ pub mod pool_test {
             let mut padding2: [u64; 32] = [0u64; 32];
             let mut padding2_data = [0u8; 8 * 32];
             let mut offset = 0;
-            for i in 24..(24 + 32) {
-                padding2[i - 24] = u64::MAX - i as u64;
-                padding2_data[offset..offset + 8].copy_from_slice(&padding2[i - 24].to_le_bytes());
+            for i in 23..(23 + 32) {
+                padding2[i - 23] = u64::MAX - i as u64;
+                padding2_data[offset..offset + 8].copy_from_slice(&padding2[i - 23].to_le_bytes());
                 offset += 8;
             }
             // serialize original data
@@ -1937,8 +1937,8 @@ pub mod pool_test {
             assert_eq!(unpack_fund_fees_token_0, fund_fees_token_0);
             let unpack_fund_fees_token_1 = unpack_data.fund_fees_token_1;
             assert_eq!(unpack_fund_fees_token_1, fund_fees_token_1);
-            let unpack_open_time = unpack_data.open_time;
-            assert_eq!(unpack_open_time, pool_open_time);
+            let unpack_open_time = unpack_data.creation_time;
+            assert_eq!(unpack_open_time, pool_open_time as i64);
             let unpack_recent_epoch = unpack_data.recent_epoch;
             assert_eq!(unpack_recent_epoch, recent_epoch);
             let unpack_padding1 = unpack_data.padding1;

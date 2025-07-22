@@ -10,16 +10,16 @@ use instructions::*;
 use states::*;
 
 #[cfg(feature = "devnet")]
-declare_id!("At5SoePZbxEcss5MXuf7iSYuhaso1mWaQP92fREkRkq6");
+declare_id!("CBLTAonXsQwXAJFKTCtAL6c44gu2x3ZvhkezHc3Mf9Xy");
 #[cfg(not(feature = "devnet"))]
-declare_id!("AiPoogP4YkDPse5fvP7nTWwR7i61x7LLq7knuyg6Pue1");
+declare_id!("CBLTAonXsQwXAJFKTCtAL6c44gu2x3ZvhkezHc3Mf9Xy");
 
 pub mod admin {
     use super::{pubkey, Pubkey};
     #[cfg(feature = "devnet")]
-    pub const ID: Pubkey = pubkey!("8kvqgxQG77pv6RvEou8f2kHSWi3rtx8F7MksXUqNLGmn");
+    pub const ID: Pubkey = pubkey!("LLLU5d7GNj4GRuhjW7jxpdrQtMDt77hcGPUSeS9JsVu");
     #[cfg(not(feature = "devnet"))]
-    pub const ID: Pubkey = pubkey!("26jWitfbhcoSekDwQVffowob6Qe4cHZRgxEgEN66xqE7");
+    pub const ID: Pubkey = pubkey!("LLLU5d7GNj4GRuhjW7jxpdrQtMDt77hcGPUSeS9JsVu");
 }
 
 #[program]

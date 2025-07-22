@@ -199,7 +199,7 @@ pub fn swap_internal<'b, 'info>(
     );
 
     let (dynamic_trade_fee_rate, dynamic_protocol_fee_rate, dynamic_fund_fee_rate) =
-    pool_state.calculate_dynamic_fee(amm_config)?;
+        pool_state.calculate_dynamic_fee(amm_config)?;
 
     // continue swapping as long as we haven't used the entire input/output and haven't
     // reached the price limit
@@ -2323,6 +2323,7 @@ mod swap_test {
     mod sqrt_price_limit_optimization_test {
         use super::*;
         use proptest::prelude::*;
+        use rand::Rng;
         use std::{convert::identity, u64};
 
         use proptest::prop_assume;
